@@ -1,0 +1,12 @@
+.form__div--calculadora
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+#firstExercise__form
+{
+    display: flex;
+    flex-direction: row;
+}
