@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title></title>
+    <title>Exercícios de programação em JS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Calcule o salário mensal com horas trabalhadas">
@@ -16,35 +16,48 @@
 </head>
 <body>
     <main class="container">
-        <article id="firstExercise">
+        <article id="firstExercise" class="desafios">
             <form id="firstExercise__form" class="article__form">
                 <style>@import url('./css/firstExercise/firstExercise.css');</style>
                 <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
                 <h2>Calculadora simples</h2>
                 <p>Digite os valores nos campos às extremidades e o simbolo da operação no meio</p>
                 <div id="form__div--valor01" class="form__div--calculadora">
-                    <label>Digite o primeiro valor da operação</label>
-                    <input id="div__input--valor01"/>
+                    <label for="PrimeiroValor">Digite o primeiro valor da operação</label>
+                    <input id="div__input--valor01" name="PrimeiroValor" placeholder="e.g. 56" required autofocus/>
                 </div>
 
                 <div id="form__div--sinal-de-operacao" class="form__div--calculadora">
-                    <label>Digite o sinal da operação</label>
-                    <input id="div__input--sinal-de-operacao"/>
+                    <label for="sinalDaOperacao">Digite o sinal da operação</label>
+                    <input id="div__input--sinal-de-operacao" name="sinalDaOperacao" placeholder="'+'" required/>
                 </div>
 
                 <div id="form__div--valor02" class="form__div--calculadora">
-                    <label>Digite o segundo valor da operação</label>
-                    <input id="div__input--valor02"/>
+                    <label for="SegundoValor">Digite o segundo valor da operação</label>
+                    <input id="div__input--valor02" name="SegundoValor" placeholder="e.g. 26" required/>
                 </div>
 
                 <div id="form__div--calculadora-resultado" class="form__div--resultado">
-                    <p>Digite valores válidos e veja seus resultados aqui constará o resultado</p>
+                    <p id="div__p--calculo-resultado">Digite valores válidos e veja seus resultados aqui constará o resultado</p>
                 </div>
             </form>
         </article>
-        <button>Previous JS file</button>
-        <button>Restart page</button>
-        <button>Next JS file</button>
+        <article id="firstExercise" class="desafios">
+            <form id="firstExercise__form" class="article__form">
+                <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
+                <h2>Converta Reais para moedas estrangeiras</h2>
+                <div id="form__div--reais">
+                    <label for="Reais"></label>
+                    <span>R$</span><input type="Number" name="Reais" placeholder="e.g. 32" required autofocus>
+                </div>
+                <div>
+                    <p id="div__p--resultado-da-conversao"></p>
+                </div>
+            </form>
+        </article>
+        <button id="previousButton">Previous JS file</button>
+        <button id="restartButton">Restart page</button>
+        <button id="nextButton">Next JS file</button>
         
     </main>
 </body>
