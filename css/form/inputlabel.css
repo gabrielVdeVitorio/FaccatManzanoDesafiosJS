@@ -11,13 +11,13 @@
     padding: 0.5rem 0.3rem;
 }
 
-.form__div--inputs input
+input
 {
     width: 7rem;
     padding: 0 0.3rem;
 }
 
-.form__div--inputs label
+label
 {
     text-align: end;
     width: 100%;

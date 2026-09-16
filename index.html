@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Exercícios de programação em JS</title>
     <meta charset="UTF-8">
@@ -14,35 +15,43 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/button.js" defer></script>
 </head>
+
 <body>
     <main class="container">
         <article id="firstExercise" class="desafios">
+            <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
             <form id="firstExercise__form" class="article__form">
-                <style>@import url('./css/firstExercise/firstExercise.css');</style>
-                <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
+                <style>
+                    @import url('./css/firstExercise/firstExercise.css');
+                </style>
+
                 <h2>Calculadora simples</h2>
                 <p>Digite os valores nos campos às extremidades e o simbolo da operação no meio</p>
-                <div id="form__div--valor01" class="form__div--calculadora">
-                    <label for="PrimeiroValor">Digite o primeiro valor da operação</label>
-                    <input id="div__input--valor01" name="PrimeiroValor" placeholder="e.g. 56" required autofocus/>
-                </div>
+                <div class="form__div--calculadora-inputs">
+                    <div id="form__div--valor01" class="form__div--calculadora form__div--inputs">
+                        <label for="PrimeiroValor">Digite o primeiro valor da operação</label>
+                        <input id="div__input--valor01" name="PrimeiroValor" placeholder="e.g. 56" required autofocus />
+                    </div>
 
-                <div id="form__div--sinal-de-operacao" class="form__div--calculadora">
-                    <label for="sinalDaOperacao">Digite o sinal da operação</label>
-                    <input id="div__input--sinal-de-operacao" name="sinalDaOperacao" placeholder="'+'" required/>
-                </div>
+                    <div id="form__div--sinal-de-operacao" class="form__div--calculadora form__div--inputs">
+                        <label for="sinalDaOperacao">Digite o sinal da operação</label>
+                        <input id="div__input--sinal-de-operacao" name="sinalDaOperacao" placeholder="'+'" required />
+                    </div>
 
-                <div id="form__div--valor02" class="form__div--calculadora">
-                    <label for="SegundoValor">Digite o segundo valor da operação</label>
-                    <input id="div__input--valor02" name="SegundoValor" placeholder="e.g. 26" required/>
+                    <div id="form__div--valor02" class="form__div--calculadora form__div--inputs">
+                        <label for="SegundoValor">Digite o segundo valor da operação</label>
+                        <input id="div__input--valor02" name="SegundoValor" placeholder="e.g. 26" required />
+                    </div>
                 </div>
 
                 <div id="form__div--calculadora-resultado" class="form__div--resultado">
-                    <p id="div__p--calculo-resultado">Digite valores válidos e veja seus resultados aqui constará o resultado</p>
+                    <p id="div__p--calculo-resultado"></p>
                 </div>
             </form>
         </article>
-        <article id="firstExercise" class="desafios">
+
+        <article id="secondExercise" class="desafios">
+
             <form id="firstExercise__form" class="article__form">
                 <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
                 <h2>Converta Reais para moedas estrangeiras</h2>
@@ -55,10 +64,17 @@
                 </div>
             </form>
         </article>
-        <button id="previousButton">Previous JS file</button>
-        <button id="restartButton">Restart page</button>
-        <button id="nextButton">Next JS file</button>
-        
+
+        <article id="thirdExercise" class="desafios">
+
+        </article>
+        <div id="div--navigation-buttons">
+            <button id="previousButton" class="navigation-buttons"><img src="./img/arrow-left.svg" /></button>
+            <button id="restartButton" class="navigation-buttons"><img src="./img/arrow-restart.svg" /></button>
+            <button id="nextButton" class="navigation-buttons"><img src="./img/arrow-right.svg" /></button>
+        </div>
+
     </main>
 </body>
+
 </html>

@@ -1,0 +1,70 @@
+button
+{
+    background-color: #00f;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 100px;
+    box-shadow: 0 0 5px #0003;
+    width: 13rem;
+    border: none;
+    padding: 10px 10px;
+    transition: transform 0.1s ease, background-color 0.1s ease, border-bottom 0.1s ease;
+}
+
+button:enabled
+{
+    cursor: pointer;
+}
+
+button:enabled:active
+{
+    transform: scale(0.94) translate(0, -3px);
+    border-bottom: 3px solid #270c57;
+    background-color: #00b;
+}
+
+button:disabled
+{
+    filter: brightness(0.8) saturate(0.2);
+}
+
+button:enabled:hover
+{
+    transform: scale(0.98) translate(0, -3px);
+    border-bottom: 3px solid #270c57;
+    background-color: #00d;
+}
+
+.navigation-buttons
+{
+    overflow: hidden;
+    width: fit-content;
+    height: 60px;
+}
+
+.navigation-buttons img
+{
+    width: 40px;
+}
+
+#previousButton
+{
+    background-image: url('../img/arrow-left.svg');
+}
+
+#nextButton
+{
+    background-image: url('../img/arrow-right.svg');
+}
+
+#restartButton
+{
+    background-image: url('../img/arrow-restart.svg');
+}
+
+#div--navigation-buttons
+{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}

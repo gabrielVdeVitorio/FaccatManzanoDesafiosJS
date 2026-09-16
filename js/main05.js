@@ -18,4 +18,3 @@ opcaoMoeda = parseInt(prompt
 
 resultado = conversao[opcaoMoeda].cotacao*real;
 alert(`A conversão de R$${real} equivale à ${conversao[opcaoMoeda].simbolo}${resultado.toFixed(2)}.`);
-location.reload();

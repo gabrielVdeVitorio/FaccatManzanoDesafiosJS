@@ -5,8 +5,51 @@
 
 }
 
-#firstExercise__form
+.form__div--calculadora-inputs
 {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#div__input--sinal-de-operacao
+{
+    width: 2rem;
+}
+
+label
+{
+    font-size: 1rem;
+    text-align: center;
+}
+
+div input
+{
+    width: 6rem;
+}
+
+#form__div--valor01, #form__div--valor02
+{
+    display: flex;
+    flex-direction: column;
+}
+#form__div--valor01
+{
+    align-items: flex-end;
+}
+
+#form__div--valor02
+{
+    align-items: flex-start;
+}
+
+#form__div--valor02 input
+{
+    margin-left: 4px;
+}
+
+#form__div--valor01 input
+{
+    margin-right: 4px;
 }

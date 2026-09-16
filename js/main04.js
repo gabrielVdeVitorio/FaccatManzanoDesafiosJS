@@ -1,20 +1,30 @@
-let operacao;
-let number = new Array(2);
+let calcular, operacao, numero;
+numero = new Array(2);
+
+const operacaoInput = document.getElementById('div__input--sinal-de-operacao');
+const numeroInput = [document.getElementById('div__input--valor01'), document.getElementById('div__input--valor02')];
+const resultadoField = document.getElementById('div__p--calculo-resultado');
+
 const operacoes = 
 {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
     '*': (a, b) => a * b,
     '/': (a, b) => b !== 0 ? a / b : 'Segundo valor deve ser diferente de 0',
-    '^': (a, b) => a ^ b
+    '^': (a, b) => Math.pow(a, b)
 }
 
-number[0] = parseFloat(prompt("Digite o primeiro valor da operação:"));
-number[1] = parseFloat(prompt("Digite o segundo valor da operação:"));
-operacao = prompt("Digite o simbolo da operação que deseja realizar:");
+operacaoInput.addEventListener( 'input', (event) => { operacao = event.target.value; calcular = operacoes[operacao]; calcular(numero[0], numero[1]); } );
+numeroInput[0].addEventListener( 'input', (event) => { numero[0] = event.target.value; resultado = calcular(numero[0], numero[1]); } );
+numeroInput[1].addEventListener( 'input', (event) => { numero[1] = event.target.value; resultado = calcular(numero[0], numero[1]); } );
 
-const calcular = operacoes[operacao];
-const resultado = calcular ? calcular(number[0], number[1]) : "Opção inválida";
-
-alert(`${number[0]} ${operacao} ${number[1]} é igual a ${resultado}`);
-location.reload();
+if (resultado)
+{
+    resultadoField.style.color = '#000';
+    resultadoField.textContent = `O resultado da operação de ${operacao} é ${resultado}`;
+}
+else
+{
+    resultadoField.style.color = '#0003';
+    resultadoField.textContent = `Digite valores válidos e aqui constará o resultado!`;
+}

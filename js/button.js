@@ -1,45 +1,88 @@
 let previousExercise, disableButtonFunction;
-let actual = 1;
+let actual = 0;
 
 const previousButton = document.getElementById('previousButton');
 const nextButton = document.getElementById('nextButton');
-
 const exercises =
-{
-    '1': document.getElementById('firstExercise'),
-    '2': document.getElementById('secondExercise'),
-    '3': document.getElementById('thirdExercise')
-}
+[
+    { id: document.getElementById('firstExercise'), filePath: './main04.js' },
+    { id: document.getElementById('secondExercise'), filePath: './main05.js' },
+    { id: document.getElementById('thirdExercise'), filePath: './main06.js' }
+];
 
 const disableButton =
 {
-    '1': () => { previousButton.setAttribute.disabled = true },
-    '3': () => { nextButton.setAttribute.disabled = true }
+    '0': () => { previousButton.disabled = true; },
+    '2': () => { nextButton.disabled = true; }
 }
 
+const importNext = async () =>
+{
+    filePath = exercises[actual].filePath;
+    try
+    {
+        const module = await import(filePath);
+        module.execute();
+    }
+    catch (error)
+    {
+        console.error(`Failed to load fil Path: '${filePath}'`)
+    }
+}
+
+const disableFunctionExecute = () =>
+{
+    disableButtonFunction = disableButton[actual];
+    console.log(disableButtonFunction);
+    if (!disableButtonFunction)
+    {
+        console.error(`There's no disable function for actual '${actual}'`);
+        return;
+    }
+    disableButtonFunction();
+}
+
+const initialize = () =>
+{
+    console.log("Entering Initialize function");
+    exercises[actual].id.style.display = 'flex';
+    disableFunctionExecute();
+}
 const main = () =>
 {
-    previousButton.addEventListener( 'click', () =>
+    initialize();
+    importNext();
+
+    previousButton.addEventListener('click', () =>
     {
-        // Disable the button previous button if it's the first exercise.
-        disableButtonFunction = disableButton[actual];
-        disableButtonFunction();
-        
         // Hide actual, point actual to the previous position and display it.
-        exercises[actual].style.display = 'none';
+        exercises[actual].id.style.display = 'none';
         actual -= 1;
-        exercises[actual].style.display = 'flex';
+        exercises[actual].id.style.display = 'flex';
+
+        // Import the next JS file.
+        importNext();
+        
+        // Disable the button previous button if it's the first exercise and able 'next' button.
+        disableFunctionExecute();
+        nextButton.disabled = false;
     });
 
-    nextButton.addEventListener( 'click', () =>
+    nextButton.addEventListener('click', () =>
     {
+        // Hide actual, point actual to the next position and display it.
+        exercises[actual].id.style.display = 'none';
+        actual += 1;
+        exercises[actual].id.style.display = 'flex';
+        
+        // Import the next JS file.
+        importNext();
+
         // Disable the button previous button if it's the first exercise.
         disableButtonFunction = disableButton[actual];
-        disableButtonFunction();
-        
-        // Hide actual, point actual to the next position and display it.
-        exercises[actual].style.display = 'none';
-        actual += 1;
-        exercises[actual].style.display = 'flex';
+        disableFunctionExecute();
+        previousButton.disabled = false;
     });
 }
+
+main();
