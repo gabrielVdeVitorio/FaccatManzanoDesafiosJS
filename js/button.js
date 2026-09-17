@@ -26,7 +26,7 @@ const importNext = async () =>
     }
     catch (error)
     {
-        console.error(`Failed to load fil Path: '${filePath}'`)
+        console.error(`Failed to load file Path: '${filePath}'`);
     }
 }
 
@@ -44,7 +44,6 @@ const disableFunctionExecute = () =>
 
 const initialize = () =>
 {
-    console.log("Entering Initialize function");
     exercises[actual].id.style.display = 'flex';
     disableFunctionExecute();
 }

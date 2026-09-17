@@ -6,7 +6,6 @@ const conversao =
     { cotacao: 1/6.94, simbolo: '£' }
 ];
 
-alert("Converta um valor de reais para a moeda de sua escolha (Euro, Dólar e Libra).");
 real = parseFloat( prompt("Digite o valor a ser convertido (em R$):") );
 opcaoMoeda = parseInt(prompt
 (
@@ -17,4 +16,3 @@ opcaoMoeda = parseInt(prompt
 ))-1;
 
 resultado = conversao[opcaoMoeda].cotacao*real;
-alert(`A conversão de R$${real} equivale à ${conversao[opcaoMoeda].simbolo}${resultado.toFixed(2)}.`);
