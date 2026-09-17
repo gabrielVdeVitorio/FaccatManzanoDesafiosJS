@@ -13,68 +13,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/button.js" defer></script>
 </head>
 
 <body>
     <main class="container">
-        <article id="firstExercise" class="desafios">
-            <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
-            <form id="firstExercise__form" class="article__form">
-                <style>
-                    @import url('./css/firstExercise/firstExercise.css');
-                </style>
+    <article id="firstExercise" class="desafios">
+        <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
+        <form id="firstExercise__form" class="article__form">
+            <style>@import url('./css/firstExercise/firstExercise.css');</style>
 
-                <h2>Calculadora simples</h2>
-                <p>Digite os valores nos campos às extremidades e o simbolo da operação no meio</p>
-                <div class="form__div--calculadora-inputs">
-                    <div id="form__div--valor01" class="form__div--calculadora form__div--inputs">
-                        <label for="PrimeiroValor">Digite o primeiro valor da operação</label>
-                        <input id="div__input--valor01" name="PrimeiroValor" placeholder="e.g. 56" required autofocus />
-                    </div>
-
-                    <div id="form__div--sinal-de-operacao" class="form__div--calculadora form__div--inputs">
-                        <label for="sinalDaOperacao">Digite o sinal da operação</label>
-                        <input id="div__input--sinal-de-operacao" name="sinalDaOperacao" placeholder="'+'" required />
-                    </div>
-
-                    <div id="form__div--valor02" class="form__div--calculadora form__div--inputs">
-                        <label for="SegundoValor">Digite o segundo valor da operação</label>
-                        <input id="div__input--valor02" name="SegundoValor" placeholder="e.g. 26" required />
-                    </div>
+            <h2>Calculadora simples</h2>
+            <p>Digite os valores nos campos às extremidades e o simbolo da operação no meio</p>
+            <div class="form__div--calculadora-inputs">
+                <div id="form__div--valor01" class="form__div--calculadora form__div--inputs">
+                    <label for="PrimeiroValor">Digite o primeiro valor da operação</label>
+                    <input id="div__input--valor01" title="PrimeiroValor" placeholder="e.g. 56" required autofocus />
                 </div>
-
-                <div id="form__div--calculadora-resultado" class="form__div--resultado">
-                    <p id="div__p--calculo-resultado"></p>
+                
+                <div id="form__div--sinal-de-operacao" class="form__div--calculadora form__div--inputs">
+                    <label for="sinalDaOperacao">Digite o sinal da operação</label>
+                    <input id="div__input--sinal-de-operacao" title="sinalDaOperacao" placeholder="'+'" required />
                 </div>
-            </form>
-        </article>
-
-        <article id="secondExercise" class="desafios">
-
-            <form id="firstExercise__form" class="article__form">
-                <h3 class="form__h3--numeracao-do-exercicio">Exercício 01</h3>
-                <h2>Converta Reais para moedas estrangeiras</h2>
-                <div id="form__div--reais">
-                    <label for="Reais"></label>
-                    <span>R$</span><input type="Number" name="Reais" placeholder="e.g. 32" required autofocus>
+                
+                <div id="form__div--valor02" class="form__div--calculadora form__div--inputs">
+                    <label for="SegundoValor">Digite o segundo valor da operação</label>
+                    <input id="div__input--valor02" title="SegundoValor" placeholder="e.g. 26" required />
                 </div>
-                <div>
-                    <p id="div__p--resultado-da-conversao"></p>
-                </div>
-            </form>
-        </article>
+            </div>
 
-        <article id="thirdExercise" class="desafios">
+            <div id="form__div--calculadora-resultado" class="form__div--resultado">
+                <p id="div__p--calculo-resultado"></p>
+            </div>
+        </form>
+    </article>
 
-        </article>
-        <div id="div--navigation-buttons">
-            <button id="previousButton" class="navigation-buttons"><img src="./img/arrow-left.svg" title="previousButton" /></button>
-            <button id="restartButton" class="navigation-buttons"><img src="./img/arrow-restart.svg" title="restartButton" /></button>
-            <button id="nextButton" class="navigation-buttons"><img src="./img/arrow-right.svg" title="nextButton" /></button>
+    <article id="secondExercise" class="desafios">
+        <h3 class="form__h3--numeracao-do-exercicio">Exercício 02</h3>
+        
+        <form id="firstExercise__form" class="article__form">
+            <h2>Converta Reais para moedas estrangeiras</h2>
+            <div id="form__div--reais">
+                <label for="Reais"></label>
+                <span>R$</span><input type="Number" title="Reais" placeholder="e.g. 32" required autofocus>
+            </div>
+            <div>
+                <p id="div__p--resultado-da-conversao"></p>
+            </div>
+        </form>
+    </article>
+
+    <article id="thirdExercise" class="desafios">
+        <h3 class="form__h3--numeracao-do-exercicio">Exercício 03</h3>
+        <form id="thirdExercise--form" class="article__form">
+            <h2>Escrevendo 20 vezes 'JavaScript' com while loop</h2>
+        </form>
+    </article>
+
+    <article id="fourthExercise" class="desafios">
+        <h3 class="form__h3--numeracao-do-exercicio">Exercício 04</h3>
+        <form id="fourthExercise--form" class="article__form">
+            
+        </form>
+    </article>
+    <div id="div--navigation-buttons">
+        <div>
+            <label for="actual">Digite o número do exercício que quer executar</label>
+            <input id="div__div--actual-exercise" title="actual" placeholder="1"/>
         </div>
+        <button id="previousButton" class="navigation-buttons"><img src="./img/arrow-left.svg" title="previousButton" /></button>
+        <button id="restartButton" class="navigation-buttons"><img src="./img/arrow-restart.svg" title="restartButton" /></button>
+        <button id="nextButton" class="navigation-buttons"><img src="./img/arrow-right.svg" title="nextButton" /></button>
+    </div>
 
     </main>
+    <script src="js/button.js"></script>
 </body>
 
 </html>
