@@ -1,14 +1,28 @@
 let numeroBase, finalTabuada, i, resultado;
 const form = document.getElementById('fourthExercise--form');
+// Erase form contents before executing (to avoid multiple executions showing at same time):
+form.innerHTML = "";
 
 numeroBase = Number.parseInt(prompt('Digite um número base para a tabuada:'));
 finalTabuada = Number.parseInt(prompt('Digite o final da tabuada (15, por exemplo):'));
 
-const paragraph = document.createElement('p');
-while(i < finalTabuada)
+i = 0;
+const createParagraph = (paragraphContent) =>
 {
-    resultado = numeroBase * (i+1);
-    paragraph.textContent = `${numeroBase} * ${finalTabuada} = ${resultado}`;
+    const paragraph = document.createElement('p');
+    paragraph.textContent = paragraphContent;
     form.appendChild(paragraph);
-    i++;
 }
+
+const numbersAreValid = () =>
+{
+    if (Number.isNaN(numeroBase) || Number.isNaN(finalTabuada)) { createParagraph(`The numbers typed aren't valid!`); return; }
+    while(i < finalTabuada+1)
+    {
+            resultado = numeroBase * i;
+            createParagraph(`${numeroBase} * ${i} = ${resultado}`);
+            i++;
+    }
+}
+
+numbersAreValid();
