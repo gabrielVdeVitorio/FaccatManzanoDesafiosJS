@@ -1,11 +1,21 @@
-.form__div--calculadora
+/* article__div--sinal-de-operacao" class="article__div--calculadora article__div--inputs div__input--valor02 */
+
+.article__div--inputs
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article__div--calculadora
 {
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
 }
 
-.form__div--calculadora-inputs
+.article__div--calculadora-inputs
 {
     display: flex;
     flex-direction: row;
@@ -29,27 +39,27 @@ div input
     width: 6rem;
 }
 
-#form__div--valor01, #form__div--valor02
+#article__div--valor01, #article__div--valor02
 {
     display: flex;
     flex-direction: column;
 }
-#form__div--valor01
+#article__div--valor01
 {
     align-items: flex-end;
 }
 
-#form__div--valor02
+#article__div--valor02
 {
     align-items: flex-start;
 }
 
-#form__div--valor02 input
+#article__div--valor02 input
 {
     margin-left: 4px;
 }
 
-#form__div--valor01 input
+#article__div--valor01 input
 {
     margin-right: 4px;
 }

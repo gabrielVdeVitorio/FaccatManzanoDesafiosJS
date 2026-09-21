@@ -48,5 +48,3 @@ switch(true) {
 }
 
 alert(`O dia e o mês digitado pertence ao ${trimestre} e, conforme o calendário do hemisfério sul, a estação é ${estacao}`);
-
-location.reload();

@@ -6,6 +6,7 @@ const conversao =
     { cotacao: 1/6.94, simbolo: '£' }
 ];
 
+alert('Converta Reais (R$) para diversas outras moedas');
 real = parseFloat( prompt("Digite o valor a ser convertido (em R$):") );
 opcaoMoeda = parseInt(prompt
 (
@@ -16,3 +17,4 @@ opcaoMoeda = parseInt(prompt
 ))-1;
 
 resultado = conversao[opcaoMoeda].cotacao*real;
+alert(`R$${real.toFixed(2)} equivale à ${conversao[opcaoMoeda].simbolo}${resultado}!`);

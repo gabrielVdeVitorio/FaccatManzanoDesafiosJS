@@ -11,5 +11,3 @@ else
 {
     alert(`${valorDigitado} é POSITIVO!`);
 }
-
-location.reload();

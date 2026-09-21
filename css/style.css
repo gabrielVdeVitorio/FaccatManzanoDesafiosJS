@@ -1,8 +1,10 @@
-@import url("form/form.css");
+@import url("article/article.css");
 @import url("form/inputlabel.css");
 @import url("mainContainer.css");
 @import url("font.css");
 @import url("button.css");
+@import url("table.css");
+@import url("article.css");
 
 *
 {
@@ -17,7 +19,7 @@ hr
     color: #0006;
 }
 
-.form__div--resultado
+.article__div--resultado
 {
     color: #0003;
 }
@@ -29,9 +31,3 @@ hr
     flex-direction: column;
 }
 
-.form__div--inputs
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}

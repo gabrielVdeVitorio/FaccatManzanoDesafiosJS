@@ -1,4 +1,4 @@
-let resultado, calcular, operacao, numero;
+let resultado, calcular, operacaoSelecionada, numero;
 numero = new Array(2);
 
 const operacaoInput = document.getElementById('div__input--sinal-de-operacao');
@@ -16,8 +16,8 @@ const operacoes =
 
 
 const calcularIfIsAfunction = () =>
-    {
-        calcular = operacoes[operacao];
+{
+        calcular = operacoes[operacaoSelecionada];
         try
     {
         const handlers =
@@ -27,17 +27,17 @@ const calcularIfIsAfunction = () =>
         }
         resultado = handlers[Boolean(numero[0] && numero[1])];
         resultadoField.style.color = '#000';
-        resultadoField.textContent = `A operação de ${numero[0]} ${operacao} ${numero[1]} é igual a ${resultado}`;
+        resultadoField.textContent = `A operação de ${numero[0]} ${operacaoSelecionada} ${numero[1]} é igual a ${resultado}`;
     }
     catch(error)
     {
         resultadoField.style.color = '#0003';
         resultadoField.textContent = `Digite valores válidos e aqui constará o resultado!`;
-        console.error(`Operação digitada '${operacao}' não correponde à nenhuma operação: ${Object.keys(operacoes)} .`);
+        console.error(`Operação digitada '${operacaoSelecionada}' não correponde à nenhuma operação: ${Object.keys(operacoes)} .`);
     }
     
 };
 
-operacaoInput.addEventListener( 'input', (event) => { operacao = event.target.value; calcularIfIsAfunction(); } );
+operacaoInput.addEventListener( 'input', (event) => { operacaoSelecionada = event.target.value; calcularIfIsAfunction(); } );
 numeroInput[0].addEventListener( 'input', (event) => { numero[0] = event.target.value; calcularIfIsAfunction(); } );
 numeroInput[1].addEventListener( 'input', (event) => { numero[1] = event.target.value; calcularIfIsAfunction(); } );
