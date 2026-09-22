@@ -23,11 +23,3 @@ hr
 {
     color: #0003;
 }
-
-.desafios
-{
-    display: none;
-    align-items: center;
-    flex-direction: column;
-}
-

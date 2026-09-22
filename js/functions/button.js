@@ -23,6 +23,16 @@ const onKeydown =
             2: () => { importNext(); }
         }
         whichShift[event.location]();
+    },
+    'PageUp+Shift': (event) =>
+    {
+        event.preventDefault();
+        changeExercise(1, previousButton);
+    },
+    'PageDown+Shift': (event) =>
+    {
+        event.preventDefault();
+        changeExercise(-1, previousButton);
     }
 }
 
@@ -46,9 +56,7 @@ const exercises =
     { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exercicioExtra04.js'},
     { id: document.getElementById('faccat15'),              filePath: '../faccat/faccat15.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-
-console.log(`${exercises.length}`);
-actual = exercises.length-17;
+actual = exercises.length-17; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>
@@ -98,20 +106,49 @@ const hideContent = (n) =>
     }
 }
 
+const changeExercise = (one, buttonToAble) =>
+{
+    // Hide actual, point actual to the next position and display it.
+    hideContent(actual+one);
+    
+    // Import the next JS file.
+    importNext();
+
+    // Disable the button previous button if it's the first exercise.
+    disableFunctionExecute();
+    buttonToAble.disabled = false;
+}
+
+
+
 const main = () =>
 {
     initialize();
-    container.addEventListener('keydown', (event) =>
+    
+    const activeKeys = new Set();
+    document.addEventListener('keydown', (event) =>
     {
-        onKeydown[event.key](event) || function() { console.warn(`The pressed key has no function correpondent: ${event.key}`) };
+        activeKeys.add(event.key);
+        const currentPressedKeys = Array.from(activeKeys)
+            .sort()
+            .join('+');
+        console.log(`${currentPressedKeys}`);
+        const execute = onKeydown[currentPressedKeys] || function(event) { console.warn(`The pressed key '${event.key}' has no function correpondent.`) };
+        execute(event);
+    });
+    document.addEventListener('keyup', (event) =>
+    {
+        const currentPressedKeys = Array.from(activeKeys)
+            .sort()
+            .join('+');
+        const execute = onKeyup[currentPressedKeys] || function(event) { console.warn(`The pressed key '${event.key}' has no function correpondent.`) };
+        execute(event);
+        activeKeys.delete(event.key);
     });
 
     previousButton.addEventListener('click', () =>
     {
-        hideContent(actual-1);
-        importNext();
-        disableFunctionExecute();
-        nextButton.disabled = false;
+        changeExercise(-1, nextButton);
     });
 
     restartButton.addEventListener('click', () =>
@@ -121,15 +158,7 @@ const main = () =>
 
     nextButton.addEventListener('click', () =>
     {
-        // Hide actual, point actual to the next position and display it.
-        hideContent(actual+1);
-        
-        // Import the next JS file.
-        importNext();
-
-        // Disable the button previous button if it's the first exercise.
-        disableFunctionExecute();
-        previousButton.disabled = false;
+        changeExercise(1, previousButton);
     });
 }
 
