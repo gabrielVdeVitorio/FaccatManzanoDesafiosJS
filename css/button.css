@@ -1,3 +1,10 @@
+@property --rotation
+{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 15deg;
+}
+
 button
 {
     background-color: #00f;
@@ -8,7 +15,7 @@ button
     width: 13rem;
     border: none;
     padding: 10px 10px;
-    transition: transform 0.1s ease, background-color 0.1s ease, border-bottom 0.1s ease;
+    transition: scale 0.1s ease, --rotation 0.1s ease, transform 0.1s ease, background-color 0.1s ease, border-bottom 0.1s ease;
 }
 
 button:enabled
@@ -18,7 +25,9 @@ button:enabled
 
 button:enabled:active
 {
-    transform: scale(0.94) translate(0, -3px);
+    --rotation: 200deg;
+    transform: translate(0, -3px);
+    scale: 0.94;
     border-bottom: 3px solid #270c57;
     background-color: #00b;
 }
@@ -30,7 +39,8 @@ button:disabled
 
 button:enabled:hover
 {
-    transform: scale(0.98) translate(0, -3px);
+    --rotation: 15deg;
+    transform: perspective(1cm) rotateX(var(--rotation)) scale(0.98) translate(0, -3px);
     border-bottom: 3px solid #270c57;
     background-color: #00d;
 }
