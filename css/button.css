@@ -2,7 +2,21 @@
 {
     syntax: '<angle>';
     inherits: false;
-    initial-value: 15deg;
+    initial-value: 0deg;
+}
+
+@property --scale
+{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 1;
+}
+
+@property --translateY
+{
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0;
 }
 
 button
@@ -15,7 +29,21 @@ button
     width: 13rem;
     border: none;
     padding: 10px 10px;
-    transition: scale 0.1s ease, --rotation 0.1s ease, transform 0.1s ease, background-color 0.1s ease, border-bottom 0.1s ease;
+
+    transform: perspective(1cm) rotateX(var(--rotation)) scale(var(--scale)) translate(0, var(--translateY));
+    transition: --rotation 0.1s ease, --scale 0.1s ease, --translateY 0.1s ease, background-color 0.1s ease, border-bottom 0.1s ease;
+}
+
+button:enabled:hover
+{
+    border-bottom: 3px solid #270c57;
+    background-color: #00d;
+}
+
+button:enabled:active
+{
+    border-bottom: 3px solid #270c57;
+    background-color: #00b;
 }
 
 button:enabled
@@ -23,26 +51,10 @@ button:enabled
     cursor: pointer;
 }
 
-button:enabled:active
-{
-    --rotation: 200deg;
-    transform: translate(0, -3px);
-    scale: 0.94;
-    border-bottom: 3px solid #270c57;
-    background-color: #00b;
-}
 
 button:disabled
 {
     filter: brightness(0.8) saturate(0.2);
-}
-
-button:enabled:hover
-{
-    --rotation: 15deg;
-    transform: perspective(1cm) rotateX(var(--rotation)) scale(0.98) translate(0, -3px);
-    border-bottom: 3px solid #270c57;
-    background-color: #00d;
 }
 
 .navigation-buttons
@@ -55,6 +67,22 @@ button:enabled:hover
 .navigation-buttons img
 {
     width: 40px;
+}
+
+.navigation-buttons:enabled:hover
+{
+    --rotation: 15deg;
+    --scale: 0.96;
+    --translateY: -3px;
+}
+
+.navigation-buttons:enabled:active
+{
+    
+    --rotation: 25deg;
+    --scale: 0.9;
+    --translateY: -3px;
+    
 }
 
 #previousButton

@@ -40,11 +40,15 @@ const exercises =
     { id: document.getElementById('terceiroDesafio07'),     filePath: '../desafios/terceiroDesafio07.js' },
     { id: document.getElementById('terceiroDesafio08'),     filePath: '../desafios/terceiroDesafio08.js' },
     { id: document.getElementById('terceiroDesafio09'),     filePath: '../desafios/terceiroDesafio09.js' },
-    { id: document.getElementById('exerciciosExtras01'),    filePath: '../exerciciosExtras/exerciciosExtras01.js'},
-    { id: document.getElementById('exerciciosExtras02'),    filePath: '../exerciciosExtras/exerciciosExtras02.js'},
-    { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exerciciosExtras03.js'},
+    { id: document.getElementById('exerciciosExtras01'),    filePath: '../exerciciosExtras/exercicioExtra01.js'},
+    { id: document.getElementById('exerciciosExtras02'),    filePath: '../exerciciosExtras/exercicioExtra02.js'},
+    { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exercicioExtra03.js'},
+    { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exercicioExtra04.js'},
     { id: document.getElementById('faccat15'),              filePath: '../faccat/faccat15.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
+
+console.log(`${exercises.length}`);
+actual = exercises.length-17;
 
 // Import the next JS file.
 const importNext = async () =>
