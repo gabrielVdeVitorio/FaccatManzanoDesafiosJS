@@ -53,10 +53,15 @@ const exercises =
     { id: document.getElementById('exerciciosExtras01'),    filePath: '../exerciciosExtras/exercicioExtra01.js'},
     { id: document.getElementById('exerciciosExtras02'),    filePath: '../exerciciosExtras/exercicioExtra02.js'},
     { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exercicioExtra03.js'},
-    { id: document.getElementById('exerciciosExtras03'),    filePath: '../exerciciosExtras/exercicioExtra04.js'},
+    { id: document.getElementById('exerciciosExtras04'),    filePath: '../exerciciosExtras/exercicioExtra04.js'},
+    { id: document.getElementById('faccat05'),              filePath: '../faccat/faccat05.js'},
+    { id: document.getElementById('faccat06'),              filePath: '../faccat/faccat06.js'},
+    { id: document.getElementById('faccat07'),              filePath: '../faccat/faccat07.js'},
+    { id: document.getElementById('faccat08'),              filePath: '../faccat/faccat08.js'},
+    { id: document.getElementById('faccat09'),              filePath: '../faccat/faccat09.js'},
     { id: document.getElementById('faccat15'),              filePath: '../faccat/faccat15.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-actual = exercises.length-17; //-------------------------------------------------------- 'ACTUAL' CONTROL
+actual = exercises.length-3; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>

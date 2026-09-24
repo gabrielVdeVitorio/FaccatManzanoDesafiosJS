@@ -1,15 +1,32 @@
+.article__div--desafios
+{
+    padding:  0 2rem 3rem 2rem;
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article__div--h3
+{
+    color: #fff;
+    background-color: #0044ff;
+    padding: 2rem 0;
+    width: 100%;
+    text-align: center;
+}
+
 .desafios
 {
-    padding: 30rem;
-    display: none;
+    overflow: hidden;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     width: 40rem;
     max-height: 70vh;
-    overflow: scroll;
-    scroll-padding: 1rem;
-    box-shadow: 0 0 3rem #f00a;
-    padding: 3rem 2rem;
+    box-shadow: 0 0 3rem #fdcc;
     border-radius: 1rem;
+    display: none;
 }

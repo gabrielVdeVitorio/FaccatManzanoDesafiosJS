@@ -32,6 +32,13 @@ const calcular = (sinalDeOperacao, numero01, numero02) =>
     console.log('> Exiting calcular function;');
 }
 
-operacaoInput.addEventListener('input', (event) => { sinalDeOperacao = event.target.value; calcular(sinalDeOperacao, numero[0], numero[1]); });
-numeroInput[0].addEventListener('input', (event) => { numero[0] = event.target.value; calcular(sinalDeOperacao, numero[0], numero[1]); });
-numeroInput[1].addEventListener('input', (event) => { numero[1] = event.target.value; calcular(sinalDeOperacao, numero[0], numero[1]); });
+const updateInputs = () =>
+{
+    sinalDeOperacao = operacaoInput.value;
+    numero[0] = Number.parseFloat(numeroInput[0].value);
+    numero[1] = Number.parseFloat(numeroInput[1].value);
+}
+
+operacaoInput.addEventListener('input', (event) => { updateInputs(); calcular(sinalDeOperacao, numero[0], numero[1]); });
+numeroInput[0].addEventListener('input', () => { updateInputs(); calcular(sinalDeOperacao, numero[0], numero[1]); });
+numeroInput[1].addEventListener('input', () => { updateInputs(); calcular(sinalDeOperacao, numero[0], numero[1]); });

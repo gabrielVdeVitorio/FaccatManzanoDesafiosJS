@@ -23,3 +23,8 @@ hr
 {
     color: #0003;
 }
+
+.hr--lastHrElement
+{
+    color: #0002;
+}

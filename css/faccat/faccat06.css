@@ -1,0 +1,23 @@
+#faccat02__div--rectangleDrawing
+{
+  background-color: #fdc;
+  border-radius: 1rem;
+  transition: width 0.4s ease-out, height 0.4s ease-out;
+}
+
+#faccat02 .div--inputs
+{
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 7rem;
+
+}
+#faccat02 input
+{
+  width: 6rem;
+}
+
+#faccat02 label
+{
+  width: 14rem;
+}

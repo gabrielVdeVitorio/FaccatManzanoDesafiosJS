@@ -1,6 +1,6 @@
 /* article__div--sinal-de-operacao" class="article__div--calculadora article__div--inputs div__input--valor02 */
 
-.article__div--inputs
+#primeiroDesafio01 .article__div--inputs
 {
     display: flex;
     flex-direction: row;
@@ -8,14 +8,14 @@
     align-items: center;
 }
 
-.article__div--calculadora
+#primeiroDesafio01 .article__div--calculadora
 {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.article__div--calculadora-inputs
+#primeiroDesafio01 .article__div--calculadora-inputs
 {
     display: flex;
     flex-direction: row;
@@ -23,43 +23,43 @@
     width: 100%;
 }
 
-#div__input--sinal-de-operacao
+#primeiroDesafio01 #div__input--sinal-de-operacao
 {
     width: 2rem;
 }
 
-label
+#primeiroDesafio01 label
 {
     font-size: 1rem;
     text-align: center;
 }
 
-div input
+#primeiroDesafio01 div input
 {
     width: 6rem;
 }
 
-#article__div--valor01, #article__div--valor02
+#primeiroDesafio01 #article__div--valor01, #article__div--valor02
 {
     display: flex;
     flex-direction: column;
 }
-#article__div--valor01
+#primeiroDesafio01 #article__div--valor01
 {
     align-items: flex-end;
 }
 
-#article__div--valor02
+#primeiroDesafio01 #article__div--valor02
 {
     align-items: flex-start;
 }
 
-#article__div--valor02 input
+#primeiroDesafio01 #article__div--valor02 input
 {
     margin-left: 4px;
 }
 
-#article__div--valor01 input
+#primeiroDesafio01 #article__div--valor01 input
 {
     margin-right: 4px;
 }

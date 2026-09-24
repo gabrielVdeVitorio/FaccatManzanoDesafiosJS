@@ -11,16 +11,25 @@
     padding: 0.5rem 0.3rem;
 }
 
+.div--inputs
+{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
 input
 {
-    width: 7rem;
+    width: 100%;
     padding: 0 0.3rem;
 }
 
 label
 {
+    width: 40%;
     text-align: end;
-    width: 100%;
 }
 
 #form__div--resultado
@@ -28,12 +37,7 @@ label
     flex-direction: column;
 }
 
-div input
+#div__input--actual-exercise
 {
-    width: 10rem;
-}
-
-div label
-{
-    width: 10rem;
+    width: 4rem;
 }
