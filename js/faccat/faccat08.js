@@ -14,9 +14,13 @@ input.votosBrancos.addEventListener('input', () => {updateVotos();});
 input.votosNulos.addEventListener('input', () => {updateVotos();});
 input.votosValidos.addEventListener('input', () => {updateVotos();});
 
-const writeOnScreenIfValid =
+const updateVotos = () =>
 {
-  true: () =>
+  votosBrancos = Number.parseInt(input.votosBrancos.value) || 0;
+  votosNulos = Number.parseInt(input.votosNulos.value) || 0;
+  votosValidos = Number.parseInt(input.votosValidos.value) || 0;
+  totalDeVotos = votosBrancos + votosNulos + votosValidos;
+  if (totalDeVotos)
   { 
     paragraph.style.color = '#000';
     paragraph.textContent =
@@ -24,21 +28,12 @@ const writeOnScreenIfValid =
     Branco: ${(votosBrancos/totalDeVotos*100).toFixed(2)}%,
     Nulos: ${(votosNulos/totalDeVotos*100).toFixed(2)}%,
     Válidos: ${(votosValidos/totalDeVotos*100).toFixed(2)}%.`;
-  },
-  false: () =>
+  }
+  else
   {
     paragraph.style.color = '#0003';
     paragraph.textContent = 'Os votos não podem conter números negativos.';
   }
-}
-
-const updateVotos = () =>
-{
-  votosBrancos = Number.parseInt(input.votosBrancos.value) || 0;
-  votosNulos = Number.parseInt(input.votosNulos.value) || 0;
-  votosValidos = Number.parseInt(input.votosValidos.value) || 0;
-  totalDeVotos = votosBrancos + votosNulos + votosValidos;
-  writeOnScreenIfValid[!(votosBrancos>>31 | votosNulos>>31 | votosValidos>>31)]();
 }
 
 updateVotos();
