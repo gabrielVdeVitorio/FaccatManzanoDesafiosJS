@@ -29,5 +29,3 @@ case 7:
 default:
     alert("Não há dia da semana correspondente!");
 }
-
-location.reload();

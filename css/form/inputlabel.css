@@ -11,24 +11,59 @@
     padding: 0.5rem 0.3rem;
 }
 
+.div--inputsComSimbolos
+{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-shrink: 100;
+}
+
+input[type='time']
+{
+    width: 11rem;
+}
+
+input[type='radio']
+{
+    width: 1rem;
+    height: 1rem;
+}
+
+.div--radioInputs input
+{
+    min-width: fit-content;
+}
+
+.div--radioInputs
+{
+    appearance: none;
+    width: fit-content;
+    white-space: nowrap;
+}
+
 .div--inputs
 {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: row;
     gap: 1rem;
     width: 100%;
-    justify-content: space-between;
 }
 
-input
+input, select
 {
-    width: 100%;
+    min-width: 8rem;
+    width: 20%;
     padding: 0 0.3rem;
 }
 
 label
 {
-    width: 40%;
+    width: 80%;
     text-align: end;
 }
 

@@ -1,0 +1,28 @@
+#faccat09 input
+{
+  width: 8rem;
+}
+
+#faccat09 span
+{
+  text-align: center;
+  height: fit-content;
+}
+
+#faccat09 .div--inputs div
+{
+  display: flex;
+  gap: 0.5rem;
+  width: fit-content;
+  align-items: center;
+}
+
+#faccat09 #faccat09__input--salarioAtual
+{
+  margin-right: 1.1rem;
+}
+
+#faccat09 #faccat09__input--reajuste
+{
+  margin-left: 0.5rem;
+}

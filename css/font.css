@@ -16,3 +16,19 @@ h3
 {
     font-size: 2rem;
 }
+
+input[type='time']
+{
+    font-family: monospace;
+}
+
+.span--simbolo
+{
+    font-family: monospace;
+}
+
+.span--simbolo.spacing
+{
+    color: #0000;
+    cursor: default;
+}
