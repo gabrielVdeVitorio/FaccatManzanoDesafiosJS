@@ -20,7 +20,6 @@ const resultParagraph = createParagraph(divParagraphs, '');
 
 const logonoff = (firstState, actualScreen) =>
 {
-  console.log(`states is ${firstState} and ${actualScreen}`);
   divParagraphs.style.display = firstState;
   divTelaDeAcesso.style.display = firstState;
   divTelaLogada.style.display = actualScreen;
@@ -46,6 +45,8 @@ buttonSubmit.addEventListener('click', () =>
     return;
   }
   logonoff('none', 'flex');
+  acessoInput.value = '';
+  senhaInput.value = '';
 });
 
 buttonLogoff.addEventListener('click', () =>
