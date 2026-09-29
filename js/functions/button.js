@@ -92,7 +92,7 @@ const exercises =
     { id: document.getElementById('faccat39'),              filePath: '../faccat/faccat39.js'},
     { id: document.getElementById('faccat21'),              filePath: '../faccat/faccat21.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-actual = exercises.length-3; //-------------------------------------------------------- 'ACTUAL' CONTROL
+actual = exercises.length-2; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>
