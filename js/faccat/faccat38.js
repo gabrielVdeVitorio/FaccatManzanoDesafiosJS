@@ -10,7 +10,6 @@ import createParagraph from "../functions/createParagraph.js";
 
 const acessoInput = document.getElementById('faccat38__input--acesso');
 const senhaInput = document.getElementById('faccat38__input--senha');
-const form = document.getElementById('faccat38__form');
 const buttonSubmit = document.getElementById('faccat38__button--submit');
 const buttonLogoff = document.getElementById('faccat38__button--logoff');
 const divTelaDeAcesso = document.getElementById('faccat38__div--telaDeAcesso');
@@ -19,11 +18,12 @@ const divParagraphs = document.getElementById('faccat38__div--paragraphs');
 divParagraphs.innerHTML = '';
 const resultParagraph = createParagraph(divParagraphs, '');
 
-const logonoff = (bool) =>
+const logonoff = (firstState, actualScreen) =>
 {
-  divParagraphs.hidden = bool;
-  divTelaDeAcesso.hidden = bool;
-  divTelaLogada.hidden = !bool;
+  console.log(`states is ${firstState} and ${actualScreen}`);
+  divParagraphs.style.display = firstState;
+  divTelaDeAcesso.style.display = firstState;
+  divTelaLogada.style.display = actualScreen;
 }
 
 buttonSubmit.addEventListener('click', () =>
@@ -33,16 +33,22 @@ buttonSubmit.addEventListener('click', () =>
   const password = senhaInput.value;
   if (accessID !== '1234' || password !== '9999')
   {
-    resultParagraph.style.backgroundColor = '#f00';
-    resultParagraph.style.fontWeight = '600';
-    resultParagraph.style.color = '#fff';
+    resultParagraph.style.cssText =
+    `
+      background-color: #faa;
+      fontWeight: 600;
+      color: #fff;
+      border: 1px solid #f00;
+      border-radius: 1rem;
+      padding: 1rem 2rem; 
+    `;
     resultParagraph.textContent = 'Senha de acesso incorreta!';
     return;
   }
-  logonoff(false);
+  logonoff('none', 'flex');
 });
 
 buttonLogoff.addEventListener('click', () =>
 {
-  logonoff(true);
+  logonoff('flex', 'none');
 });
