@@ -13,20 +13,36 @@ const senhaInput = document.getElementById('faccat38__input--senha');
 const form = document.getElementById('faccat38__form');
 const buttonSubmit = document.getElementById('faccat38__button--submit');
 const buttonLogoff = document.getElementById('faccat38__button--logoff');
-const divParagraphs = document.getElementById('faccat38__div--paragraph');
+const divTelaDeAcesso = document.getElementById('faccat38__div--telaDeAcesso');
+const divTelaLogada = document.getElementById('faccat38__div--telaLogada');
+const divParagraphs = document.getElementById('faccat38__div--paragraphs');
 divParagraphs.innerHTML = '';
+const resultParagraph = createParagraph(divParagraphs, '');
 
 const logonoff = (bool) =>
 {
-  form.hidden = bool;
-  divParagraphs.hidden = !bool;
+  divParagraphs.hidden = bool;
+  divTelaDeAcesso.hidden = bool;
+  divTelaLogada.hidden = !bool;
 }
-  
-buttonSubmit.addEventListener('click', (event) =>
+
+buttonSubmit.addEventListener('click', () =>
 {
-  event.preventDefault();
-  if (accessID !== '1234' || password !== '9999') { form.reset(); return; }
+  console.log('Entering click');
+  const accessID = acessoInput.value;
+  const password = senhaInput.value;
+  if (accessID !== '1234' || password !== '9999')
+  {
+    resultParagraph.style.backgroundColor = '#f00';
+    resultParagraph.style.fontWeight = '600';
+    resultParagraph.style.color = '#fff';
+    resultParagraph.textContent = 'Senha de acesso incorreta!';
+    return;
+  }
   logonoff(false);
 });
 
-buttonLogoff.addEventListener('click', () => { form.reset(); logonoff(true); });
+buttonLogoff.addEventListener('click', () =>
+{
+  logonoff(true);
+});
