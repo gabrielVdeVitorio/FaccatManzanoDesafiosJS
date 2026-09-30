@@ -103,18 +103,6 @@ const exercises =
     { id: document.getElementById('manzanoL01K'),           filePath: '../manzano/manzanoL01K.js'},
     { id: document.getElementById('manzanoL01L'),           filePath: '../manzano/manzanoL01L.js'},
     { id: document.getElementById('manzanoL01M'),           filePath: '../manzano/manzanoL01M.js'},
-    { id: document.getElementById('manzanoL02A'),           filePath: '../manzano/manzanoL02A.js'},
-    { id: document.getElementById('manzanoL02B'),           filePath: '../manzano/manzanoL02B.js'},
-    { id: document.getElementById('manzanoL02C'),           filePath: '../manzano/manzanoL02C.js'},
-    { id: document.getElementById('manzanoL02D'),           filePath: '../manzano/manzanoL02D.js'},
-    { id: document.getElementById('manzanoL02E'),           filePath: '../manzano/manzanoL02E.js'},
-    { id: document.getElementById('manzanoL02F'),           filePath: '../manzano/manzanoL02F.js'},
-    { id: document.getElementById('manzanoL02G'),           filePath: '../manzano/manzanoL02G.js'},
-    { id: document.getElementById('manzanoL02H'),           filePath: '../manzano/manzanoL02H.js'},
-    { id: document.getElementById('manzanoL02I'),           filePath: '../manzano/manzanoL02I.js'},
-    { id: document.getElementById('manzanoL02J'),           filePath: '../manzano/manzanoL02J.js'},
-    { id: document.getElementById('manzanoL02K'),           filePath: '../manzano/manzanoL02K.js'},
-    { id: document.getElementById('manzanoL02L'),           filePath: '../manzano/manzanoL02L.js'},
     { id: document.getElementById('manzanoL03A'),           filePath: '../manzano/manzanoL03A.js'},
     { id: document.getElementById('manzanoL03B'),           filePath: '../manzano/manzanoL03B.js'},
     { id: document.getElementById('manzanoL03C'),           filePath: '../manzano/manzanoL03C.js'},
@@ -125,6 +113,8 @@ const exercises =
     { id: document.getElementById('manzanoL03H'),           filePath: '../manzano/manzanoL03H.js'},
     { id: document.getElementById('manzanoL03I'),           filePath: '../manzano/manzanoL03I.js'},
     { id: document.getElementById('manzanoL03J'),           filePath: '../manzano/manzanoL03J.js'},
+    { id: document.getElementById('manzanoL03K'),           filePath: '../manzano/manzanoL03K.js'},
+    { id: document.getElementById('manzanoL03L'),           filePath: '../manzano/manzanoL03L.js'},
     { id: document.getElementById('manzanoL04A'),           filePath: '../manzano/manzanoL04A.js'},
     { id: document.getElementById('manzanoL04B'),           filePath: '../manzano/manzanoL04B.js'},
     { id: document.getElementById('manzanoL04C'),           filePath: '../manzano/manzanoL04C.js'},
@@ -135,9 +125,19 @@ const exercises =
     { id: document.getElementById('manzanoL04H'),           filePath: '../manzano/manzanoL04H.js'},
     { id: document.getElementById('manzanoL04I'),           filePath: '../manzano/manzanoL04I.js'},
     { id: document.getElementById('manzanoL04J'),           filePath: '../manzano/manzanoL04J.js'},
-    { id: document.getElementById('manzanoL04K'),           filePath: '../manzano/manzanoL04K.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
+    { id: document.getElementById('manzanoL05A'),           filePath: '../manzano/manzanoL05A.js'},
+    { id: document.getElementById('manzanoL05B'),           filePath: '../manzano/manzanoL05B.js'},
+    { id: document.getElementById('manzanoL05C'),           filePath: '../manzano/manzanoL05C.js'},
+    { id: document.getElementById('manzanoL05D'),           filePath: '../manzano/manzanoL05D.js'},
+    { id: document.getElementById('manzanoL05E'),           filePath: '../manzano/manzanoL05E.js'},
+    { id: document.getElementById('manzanoL05F'),           filePath: '../manzano/manzanoL05F.js'},
+    { id: document.getElementById('manzanoL05G'),           filePath: '../manzano/manzanoL05G.js'},
+    { id: document.getElementById('manzanoL05H'),           filePath: '../manzano/manzanoL05H.js'},
+    { id: document.getElementById('manzanoL05I'),           filePath: '../manzano/manzanoL05I.js'},
+    { id: document.getElementById('manzanoL05J'),           filePath: '../manzano/manzanoL05J.js'},
+    { id: document.getElementById('manzanoL05K'),           filePath: '../manzano/manzanoL05K.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-actual = exercises.length-46; //-------------------------------------------------------- 'ACTUAL' CONTROL
+actual = exercises.length-35; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>
