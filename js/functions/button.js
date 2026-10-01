@@ -137,7 +137,7 @@ const exercises =
     { id: document.getElementById('manzanoL05J'),           filePath: '../manzano/manzanoL05J.js'},
     { id: document.getElementById('manzanoL05K'),           filePath: '../manzano/manzanoL05K.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-actual = exercises.length-35; //-------------------------------------------------------- 'ACTUAL' CONTROL
+actual = exercises.length-34; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>

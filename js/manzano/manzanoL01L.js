@@ -10,11 +10,12 @@ const valoresInput =
   document.getElementById('manzanoL01L__input--valor01'),
   document.getElementById('manzanoL01L__input--valor02'),
   document.getElementById('manzanoL01L__input--valor03'),
+  document.getElementById('manzanoL01L__input--valor04')
 ];
 const divParagraphs = document.getElementById('manzanoL01L__div--paragraphs');
 divParagraphs.innerHTML = '';
 const resultParagraph = createParagraph(divParagraphs, '');
-const respostaPadrao = 'Aqui será escrita a quantidade de dólares correspondentes aos seus reais';
+const respostaPadrao = 'Aqui será escrita a soma e a multilicação distributiva';
 const updateValues = () =>
 {
   const valores =
@@ -22,17 +23,33 @@ const updateValues = () =>
     Number.parseFloat(valoresInput[0].value),
     Number.parseFloat(valoresInput[1].value),
     Number.parseFloat(valoresInput[2].value),
+    Number.parseFloat(valoresInput[3].value)
   ];
-  const somaDosQuadrados = Math.pow(valores[0], 2) + Math.pow(valores[1], 2) + Math.pow(valores[2], 2);
   if (Number.isNaN(somaDosQuadrados))
   {
     resultParagraph.style.color = '#0003';
     resultParagraph.textContent = respostaPadrao;
     return;
   }
+  const somas = [];
+  const multilicacoes = [];
+  for (let i = 0; i < valores.length-1; i++)
+  {
+    const primeiroValor = valores[i];
+    for (let j = i+1; j < valores.length; j++)
+    {
+      const segundoValor = valores[j];
+      somas.push(primeiroValor + segundoValor);
+      multilicacoes.push(primeiroValor * segundoValor);
+    }
+  }
   resultParagraph.style.color = '#000';
-  resultParagraph.textContent = ``;
+  resultParagraph.innerHTML =
+  `${Array.from(somas).join(', ')}<br/>
+  ${Array.from(multilicacoes.join(', '))}`;
 }
 updateValues();
 
-valoresInput
+valoresInput[0].addEventListener('input', updateValues);
+valoresInput[1].addEventListener('input', updateValues);
+valoresInput[2].addEventListener('input', updateValues);
