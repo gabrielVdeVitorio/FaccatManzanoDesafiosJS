@@ -1,4 +1,29 @@
 /*
-Ler uma temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A fórmula de
-conversão é F ← (9 * C + 160) / 5, sendo F a temperatura em Fahrenheit e C a temperatura em Celsius.
+e) Apresentar os resultados das potências de 3, variando do expoente 0 até o expoente 15. Deve ser
+considerado que qualquer número elevado a zero é 1, e elevado a 1 é ele próprio. Observe que
+neste exercício não pode ser utilizado o operador de exponenciação do portuguol (^).
 */
+
+import createTable from "../functions/createTable.js";
+
+const divParagraphs = document.getElementById('manzanoL03A__div--paragraphs');
+divParagraphs.innerHTML = '';
+
+const updateValues = () =>
+{
+  const rows = [];
+  let i = 0;
+  while (i < 16)
+  {
+    let potencia = 1;
+    let j = 0;
+    while (j < i)
+    {
+      potencia *= 3;
+      j++;
+    }
+    rows.push([`3 ^ ${i} = `, i]);
+    i++;
+  }
+  createTable(divParagraphs, [[]], rows);
+}

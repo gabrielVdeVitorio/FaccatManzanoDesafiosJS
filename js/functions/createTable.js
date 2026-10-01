@@ -56,16 +56,18 @@ const createAndFillTableBlocks =
  * @param {HTMLElement} divBlock - HTML father block element will enclose the table.
  * @param {number[][] | string[][]} thead - Thead contents, in format of matrix (multidimensional array) – each index is a tr and its contents are th.
  * @param {number[][] | string[][]} tbody - Tbody contents, in format of matrix (multidimensional array) – each index is a tr and its contents are td.
+ * @param {HTMLTableElement} tableElement - Table tag you wants to modify (creates a new table for default).
  * @param {string} tableId - The id you want to set to your table. Will return Date.now() if it's not set.
  * @param {string[]} tableClasses - The array of classes you want to set to your table. 'function-generated-table' is automatically set if it's not set in parameters.
  * @param {number[][] | string[][]} tfoot - Tfoot contents, in format of matrix (multidimensional array) – each index is a tr and its contents are td.
  * @returns {string}
  */
 
-const createTable = (divBlock, thead, tbody, tableId=`my-table-${Date.now()}`, tableClasses=['function-generated-table'], tfoot = [] ) =>
+const createTable = (divBlock, thead, tbody, tableElement = document.createElement('table'), tableId=`my-table-${Date.now()}`, tableClasses=['function-generated-table'], tfoot = [] ) =>
 {
-    const table = document.createElement('table');
+    const table = tableElement;
     divBlock.appendChild(table);
+    table.innerHTML = '';
 
     setIdAndClasses(table, tableId, tableClasses);
 
@@ -73,7 +75,7 @@ const createTable = (divBlock, thead, tbody, tableId=`my-table-${Date.now()}`, t
     createAndFillTableBlocks[(+!!tbody.length)*2](table, tbody, 'tbody');
     createAndFillTableBlocks[(+!!tfoot.length)*3](table, tfoot, 'tfoot');
 
-    return table.id;
+    return {id: table.id, table: table};
 }
 
 export default createTable;

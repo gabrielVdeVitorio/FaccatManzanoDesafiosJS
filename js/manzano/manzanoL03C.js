@@ -1,4 +1,17 @@
 /*
-Ler uma temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A fórmula de
-conversão é F ← (9 * C + 160) / 5, sendo F a temperatura em Fahrenheit e C a temperatura em Celsius.
+c) Elaborar um programa que apresente no final o somatório dos valores pares existentes na faixa de
+1 até 500.
 */
+
+import createParagraph from "../functions/createParagraph.js";
+
+const divParagraphs = document.getElementById('manzanoL03C__div--paragraphs');
+divParagraphs.innerHTML = '';
+let soma = 0;
+let i = 0;
+while (i < 500)
+{
+  i += 2;
+  soma += i;
+}
+createParagraph(divParagraphs, `A soma dos números pares de 1 a 500 é igual a ${soma}`);
