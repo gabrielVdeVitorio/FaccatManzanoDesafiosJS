@@ -22,6 +22,7 @@ const updateValues = () =>
     resultParagraph.textContent = respostaPadrao;
     return;
   }
+  resultParagraph.style.color = '#000';
   if (valor[0] > valor[1])
   {
     resultParagraph.textContent = `O maior é ${valor[0]}.`;

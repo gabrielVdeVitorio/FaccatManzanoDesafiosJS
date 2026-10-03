@@ -1,15 +1,15 @@
 function iniciarTimer()
 {
-  var tempo = Number(document.getElementById("tempo").value);
+  let tempo = Number(document.getElementById("exercicioExtra02__input--tempo").value);
+  const contador = document.getElementById('exercicioExtra02__p--contador');
+  let segundos = tempo * 60
 
-  var segundos = tempo * 60
-
-  var timer = setInterval(function()
+  let timer = setInterval(function()
   {
-    var minutos = Math.floor(segundos / 60)
-    var seg = segundos % 60
+    let minutos = Math.floor(segundos / 60)
+    let seg = segundos % 60
 
-    document.getElementById("contador").innerHTML = `${minutos}:${String(seg).padStart(2, "0")}`;
+    contador.replaceChildren(`${minutos}:${String(seg).padStart(2, "0")}`);
 
     segundos--;
 
@@ -17,7 +17,9 @@ function iniciarTimer()
     {
       clearInterval(timer)
 
-      document.getElementById("contador").innerHTML = "Tempo Encerrado!"
+      contador.replaceChildren("Tempo Encerrado!");
     }
   }, 1000);
 }
+
+document.getElementById('exercicioExtra02__button--iniciar-timer').onclick = iniciarTimer();

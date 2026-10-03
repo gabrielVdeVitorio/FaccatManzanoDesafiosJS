@@ -6,7 +6,7 @@ neste exercício não pode ser utilizado o operador de exponenciação do portug
 
 import createTable from "../functions/createTable.js";
 
-const divParagraphs = document.getElementById('manzanoL03A__div--paragraphs');
+const divParagraphs = document.getElementById('manzanoL03E__div--paragraphs');
 divParagraphs.innerHTML = '';
 
 const updateValues = () =>
@@ -22,8 +22,9 @@ const updateValues = () =>
       potencia *= 3;
       j++;
     }
-    rows.push([`3 ^ ${i} = `, i]);
+    rows.push([`3 ^ ${i} = `, potencia]);
     i++;
   }
   createTable(divParagraphs, [[]], rows);
 }
+updateValues();

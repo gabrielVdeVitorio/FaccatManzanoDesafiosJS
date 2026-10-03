@@ -1,4 +1,110 @@
 /*
-Ler uma temperatura em graus Celsius e apresentá-la convertida em graus Fahrenheit. A fórmula de
-conversão é F ← (9 * C + 160) / 5, sendo F a temperatura em Fahrenheit e C a temperatura em Celsius.
+h) Elaborar um programa que possibilite calcular a área total de uma residência (sala, cozinha,
+banheiro, quartos, área de serviço, quintal, garagem, etc.). O programa deve solicitar a entrada do
+nome, a largura e o comprimento de um determinado cômodo. Em seguida, deve apresentar a área
+do cômodo lido e também uma mensagem solicitando do usuário a confirmação de continuar
+calculando novos cômodos. Caso o usuário responda “NAO”, o programa deve apresentar o valor
+total acumulado da área residencial.
 */
+
+import createParagraph from '../functions/createParagraph.js';
+
+const lastHr = document.getElementById('manzanoL04H__hr--lastHrElement');
+const inputs = [];
+const buttons =
+{
+  removerComodo: document.getElementById('manzanoL04H__button--removerComodo'),
+  adicionarComodo: document.getElementById('manzanoL04H__button--adicionarComodo')
+};
+const divParagraphs = document.getElementById('manzanoL04H__div--paragraphs');
+divParagraphs.innerHTML = '';
+const resultParagraph = createParagraph(divParagraphs, '');
+
+const updateValues = () =>
+{
+  const area = [];
+  let soma = 0;
+  let i = 0;
+  do
+  {
+    const largura = inputs[i].largura.valueAsNumber;
+    const comprimento = inputs[i].comprimento.valueAsNumber;
+    area.push(largura * comprimento);
+    soma += area[i];
+    i++;
+  } while (i < inputs.length);
+  if (Number.isNaN(soma))
+  {
+    resultParagraph.style.color = '#0003';
+    resultParagraph.textContent = 'Aqui será escrita a área total da residência!';
+    return;
+  }
+  const areaTotal = area.reduce((accumulator, currentValues) => accumulator + currentValues, 0);
+  resultParagraph.style.color = '#000';
+  resultParagraph.textContent = `Área total da residência: ${areaTotal} m², com ${inputs.length} cômodos.`;
+}
+let i = 0;
+
+buttons.removerComodo.onclick = removerComodo;
+buttons.adicionarComodo.onclick = adicionarComodo;
+
+function removerComodo()
+{
+  if (inputs.length > 1)
+  {
+    inputs.pop();
+    document.querySelector('#manzanoL04H .div--inputs.comprimento:not(:has(~ .div--inputs.comprimento))')?.remove();
+    document.querySelector('#manzanoL04H .div--inputs.largura:not(:has(~ .div--inputs.largura))')?.remove();
+    document.querySelector('#manzanoL04H .hr--lastHrElement.enumeration:not(:has(~ .hr--lastHrElement.enumeration))')?.remove();
+    updateValues();
+  }
+}
+
+function adicionarComodo()
+{
+  const enumeration = inputs.length + 1;
+  
+  lastHr.insertAdjacentHTML('beforebegin',
+  `
+    <hr class="hr--lastHrElement enumeration"/>
+    <div class="div--inputs largura">
+      <label for="manzanoL04H__input--largura${enumeration}">Digite a largura do cômodo (em metros):</label>
+      <input id="manzanoL04H__input--largura${enumeration}" title="Largura do Cômodo" min="0" placeholder="5" type='number'/>
+    </div>
+    <div class="div--inputs comprimento">
+      <label for="manzanoL04H__input--comprimento${enumeration}">Digite o comprimento do cômodo (em metros):</label>
+      <input id="manzanoL04H__input--comprimento${enumeration}" title="Comprimento do Cômodo" min="0" placeholder="5" type='number'/>
+    </div>
+  `);
+  inputs.push
+  (
+    {
+      largura: document.getElementById(`manzanoL04H__input--largura${enumeration}`),
+      comprimento: document.getElementById(`manzanoL04H__input--comprimento${enumeration}`)
+    }
+  );
+  inputs[inputs.length - 1].largura.oninput = updateValues;
+  inputs[inputs.length - 1].comprimento.oninput = updateValues;
+  updateValues();
+}
+
+function cadastrarInputs()
+{
+  const inputsLargura = document.querySelectorAll('#manzanoL04H .div--inputs.largura input');
+  const inputsComprimento = document.querySelectorAll('#manzanoL04H .div--inputs.comprimento input');
+  let i = 0;
+  do
+  {
+    inputs[i] = {largura: inputsLargura[i], comprimento: inputsComprimento[i]};
+    inputs[i].largura.oninput = updateValues;
+    inputs[i].comprimento.oninput = updateValues;
+    i++;
+  } while (i < inputsLargura.length);
+}
+
+cadastrarInputs();
+do
+{
+  removerComodo();
+} while(inputs.length > 1);
+updateValues();

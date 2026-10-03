@@ -7,16 +7,16 @@ const listaDeCompras = [];
 const divParagraphs = document.getElementById('terceiroDesafio08__div--paragraphs');
 const tableDivBlock = document.getElementById('terceiroDesafio08__div--table');
 
-divParagraphs.innerHTML = '';
-tableDivBlock.innerHTML = '';
+divParagraphs.replaceChildren();
+tableDivBlock.replaceChildren();
 
 i = 0;
 while(adicionarProduto)
 {
-    valorUnitario = null;
+    valorUnitario = NaN;
 
     nomeDoProduto = prompt('Digite o nome do produto:');
-    while(!valorUnitario) { valorUnitario = Number.parseFloat(prompt('Digite o valor unitário do produto:')); }
+    while(Number.isNaN(valorUnitario)) { valorUnitario = Number.parseFloat(prompt('Digite o valor unitário do produto:')); }
     soma += valorUnitario;
 
     listaDeCompras[i] = [ '1x', nomeDoProduto, `R$${valorUnitario.toFixed(2)}`, `R$${valorUnitario.toFixed(2)}` ];
@@ -26,6 +26,6 @@ while(adicionarProduto)
 
     i++;
 }
-const table01 = createTable(tableDivBlock, [], listaDeCompras);
+const table01 = createTable(tableDivBlock, [[]], listaDeCompras);
 
 createParagraph(divParagraphs, `SUBTOTAL ${soma}`);

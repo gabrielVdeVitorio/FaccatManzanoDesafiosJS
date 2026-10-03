@@ -1,6 +1,6 @@
-const buttonAcender = document.getElementById('lampchallenge--buttonAcender');
-const buttonApagar = document.getElementById('lampchallenge--buttonApagar');
-const lampImg = document.getElementById('lampchallenge--img');
+const buttonAcender = document.getElementById('exerciciosExtras03--buttonAcender');
+const buttonApagar = document.getElementById('exerciciosExtras03--buttonApagar');
+const lampImg = document.getElementById('exerciciosExtras03__img');
 let count = 5;
 
 const quebrarLampada =
@@ -9,5 +9,11 @@ const quebrarLampada =
   1: () => { console.log(`A lâmpada só aguenta mais ${count} cliques!`); }
 }
 
-buttonAcender.addEventListener('click', () => { lampImg.src = './img/bulbon.png'; lampImg.alt = 'Lâmpada acessa'; });
-buttonApagar.addEventListener('click', () => { count -= 1; lampImg.src = './img/bulboff.png'; lampImg.alt = 'Lâmpada acessa'; quebrarLampada[+!!count](); });
+buttonAcender.onclick = () => { lampImg.src = './img/exerciciosExtras/exercicioExtra03/bulbon.png'; lampImg.alt = 'Lâmpada acessa'; };
+buttonApagar.onclick = () =>
+{
+  count -= 1;
+  lampImg.src = './img/exerciciosExtras/exercicioExtra03/bulboff.png';
+  lampImg.alt = 'Lâmpada acessa';
+  quebrarLampada[+!!count]();
+};

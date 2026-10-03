@@ -6,36 +6,6 @@ const previousButton = document.getElementById('previousButton');
 const nextButton = document.getElementById('nextButton');
 const restartButton = document.getElementById('restartButton');
 
-
-const onKeydown =
-{
-    Insert: (event) =>
-    {
-        hideContent(event.target.value-1);
-        importNext();
-        disableFunctionExecute();
-    },
-    Shift: (event) =>
-    {
-        const whichShift =
-        {
-            1: () => {},
-            2: () => { importNext(); }
-        }
-        whichShift[event.location]();
-    },
-    'PageUp+Shift': (event) =>
-    {
-        event.preventDefault();
-        changeExercise(1, previousButton);
-    },
-    'PageDown+Shift': (event) =>
-    {
-        event.preventDefault();
-        changeExercise(-1, previousButton);
-    }
-}
-
 const exercises =
 [
     { id: document.getElementById('primeiroDesafio01'),     filePath: '../desafios/primeiroDesafio01.js', disableIf0: () => { previousButton.disabled = true; nextButton.disabled = false; } },
@@ -137,7 +107,7 @@ const exercises =
     { id: document.getElementById('manzanoL05J'),           filePath: '../manzano/manzanoL05J.js'},
     { id: document.getElementById('manzanoL05K'),           filePath: '../manzano/manzanoL05K.js', disableIf0: () => { previousButton.disabled = false; nextButton.disabled = true; } }
 ];
-actual = exercises.length-29; //-------------------------------------------------------- 'ACTUAL' CONTROL
+actual = exercises.length-23; //-------------------------------------------------------- 'ACTUAL' CONTROL
 
 // Import the next JS file.
 const importNext = async () =>
@@ -205,26 +175,38 @@ const changeExercise = (one, buttonToAble) =>
 const main = () =>
 {
     initialize();
-    
-    const activeKeys = new Set();
+    const onKeydown =
+    {
+        Insert: (event) =>
+        {
+            hideContent(event.target.value-1);
+            importNext();
+            disableFunctionExecute();
+        },
+        Shift: (event) =>
+        {
+            const whichShift =
+            {
+                1: () => {},
+                2: () => { importNext(); }
+            }
+            whichShift[event.location]();
+        },
+        'PageUp+Shift': (event) =>
+        {
+            event.preventDefault();
+            changeExercise(1, previousButton);
+        },
+        'PageDown+Shift': (event) =>
+        {
+            event.preventDefault();
+            changeExercise(-1, previousButton);
+        }
+    }
     document.addEventListener('keydown', (event) =>
     {
-        activeKeys.add(event.key);
-        const currentPressedKeys = Array.from(activeKeys)
-            .sort()
-            .join('+');
-        console.log(`${currentPressedKeys}`);
-        const execute = onKeydown[currentPressedKeys] || function(event) { console.warn(`The pressed key '${event.key}' has no function correpondent.`) };
+        const execute = onKeydown[event.key] || function(event) { console.warn(`The pressed key '${event.key}' has no function correpondent.`) };
         execute(event);
-    });
-    document.addEventListener('keyup', (event) =>
-    {
-        const currentPressedKeys = Array.from(activeKeys)
-            .sort()
-            .join('+');
-        const execute = onKeyup[currentPressedKeys] || function(event) { console.warn(`The pressed key '${event.key}' has no function correpondent.`) };
-        execute(event);
-        activeKeys.delete(event.key);
     });
 
     previousButton.addEventListener('click', () =>

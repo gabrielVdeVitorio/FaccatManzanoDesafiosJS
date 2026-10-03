@@ -13,14 +13,14 @@ const originalcssAttributes =
 
 const resize =
 {
-  0: () => { myResizeableParagraph.style.fontSize = '5em'; },
-  1: () => { myResizeableParagraph.style.fontSize = originalcssAttributes.fontSize; }
+  0: () => { myResizeableParagraph.style.fontSize = '5em'; myButtonResize.textContent = 'Downsize it'; },
+  1: () => { myResizeableParagraph.style.fontSize = originalcssAttributes.fontSize; myButtonResize.textContent = 'Upsize it'; }
 }
 
 const hidden =
 {
-  0: () => { myHideableParagraph.style.display = "none"; },
-  1: () => { myHideableParagraph.style.display = originalcssAttributes.display; }
+  0: () => { myHideableParagraph.style.display = "none"; myButtonDisappear.textContent = 'Show it'; },
+  1: () => { myHideableParagraph.style.display = originalcssAttributes.display; myButtonDisappear.textContent = 'Hide it'; }
 }
 
 myButtonResize.addEventListener('click', () => { resize[actualSize](); actualSize += 1; actualSize &= 1; });
